@@ -11,8 +11,9 @@ def new1() {
   def x = 10
   def y = 0
 
-  while(x>y) {
+  while(x > y) {
     println "${y}"
+    y++
 
   }
 }
