@@ -7,30 +7,29 @@ def call() {
       }
 
       stages {
-
-          stage('compile/build') {
-              steps {
-                common.compile()
-              }
+        stage('compile/build') {
+          steps {
+            common.compile()
           }
+       }
 
-          stage('unit test') {
-              steps {
-                  echo 'unit test'
-              }
-          }
+      stage('unit test') {
+        steps {
+          echo 'unit test'
+        }
+      }
 
-          stage('quality control') {
-              steps {
-                  echo 'quality control'
-              }
-          }
+      stage('quality control') {
+        steps {
+          echo 'quality control'
+        }
+      }
 
-          stage('upload code to centralized place') {
-              steps {
-                  echo 'upload'
-              }
-          }
+      stage('upload code to centralized place') {
+        steps {
+          echo 'upload'
+        }
       }
     }
+  }
 }
