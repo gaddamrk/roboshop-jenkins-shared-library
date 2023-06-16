@@ -8,12 +8,13 @@ def new1() {
   } else {
     print "no"
   }
+  def x = 10
+  def y = 0
+
+  while(x>y) {
+    println "${y}"
+
+  }
 }
 
-def x = 10
-def y = 0
 
-while(x>y) {
-  println "${y}"
-
-}
