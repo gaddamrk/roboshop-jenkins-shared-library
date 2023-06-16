@@ -1,6 +1,6 @@
 def new1() {
   print"hello"
 
-  def "abc = ${abc}"
+  print "abc = ${abc}"
 
 }
