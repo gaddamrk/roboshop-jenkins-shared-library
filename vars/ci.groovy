@@ -2,18 +2,18 @@ def call() {
 
   pipeline {
 
-      agent {
-        label 'workstation'
-      }
+    agent {
+      label 'workstation'
+    }
 
-      stages {
-        stage('compile/build') {
-          steps {
-            script {
-              common.compile()
-            }
+    stages {
+      stage('compile/build') {
+        steps {
+          script {
+            common.compile()
           }
-       }
+        }
+     }
 
         stage('unit test') {
           steps {
