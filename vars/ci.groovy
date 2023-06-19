@@ -17,7 +17,9 @@ def call() {
 
         stage('unit job.xml') {
           steps {
-            echo 'unit job.xml'
+            script{
+              common.unittests
+            }
           }
         }
 
