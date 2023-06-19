@@ -15,9 +15,9 @@ def call() {
         }
      }
 
-        stage('unit test') {
+        stage('unit job.xml') {
           steps {
-            echo 'unit test'
+            echo 'unit job.xml'
           }
         }
 
