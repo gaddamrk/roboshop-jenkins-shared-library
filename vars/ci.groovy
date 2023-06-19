@@ -18,7 +18,7 @@ def call() {
         stage('unit job.xml') {
           steps {
             script{
-              common.unittests
+              common.unittests()
             }
           }
         }
