@@ -15,7 +15,7 @@ def call() {
           }
         }
 
-        stage('unit job.xml') {
+        stage('unit test') {
           steps {
             script {
               common.unittests()
@@ -39,9 +39,9 @@ def call() {
       }
 
     }
- } catch(Exception e) {
+  } catch(Exception e) {
    common.email('failed')
- }
+  }
 }
 
 
