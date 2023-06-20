@@ -17,7 +17,7 @@ def call() {
 
         stage('unit job.xml') {
           steps {
-            script{
+            script {
               common.unittests()
             }
           }
@@ -34,13 +34,14 @@ def call() {
             echo 'upload'
           }
         }
+
+
       }
+
     }
  } catch(Exception e) {
    common.email('failed')
  }
-
-
 }
 
 
