@@ -11,7 +11,7 @@ def call() {
           steps {
             script {
               common.compile()
-             }
+            }
           }
         }
 
@@ -23,22 +23,22 @@ def call() {
           }
         }
 
-         stage('quality control') {
-           steps {
-             echo 'quality control'
-           }
-         }
+        stage('quality control') {
+          steps {
+            echo 'quality control'
+          }
+        }
 
-         stage('upload code to centralized place') {
-           steps {
-             echo 'upload'
-           }
-         }
-       }
-     }
-   }
+        stage('upload code to centralized place') {
+          steps {
+            echo 'upload'
+          }
+        }
+      }
+    }
+  }
  } catch (Exception e) {
-    common.email('failed')
-   }
+   common.email('failed')
+}
 
 }
