@@ -3,7 +3,7 @@ def call() {
   try {
     pipeline {
       agent {
-        label 'server'
+        label 'workstation'
       }
       stages {
 
