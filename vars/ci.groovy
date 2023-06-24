@@ -4,7 +4,7 @@ def call() {
     node('workstation') {
 
       stage('cleanup') {
-        cleanws()
+        cleanWs()
 
       }
     }
