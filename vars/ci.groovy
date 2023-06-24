@@ -30,29 +30,26 @@ def call() {
           }
 
           steps {
-            script {
-              wrap([$class: 'MaskPasswordsBuildWrapper', varPasswordPairs: [[password: "${sonar_pass}", var: 'secret']]]) {
-                sh "sonar-scanner -Dsonar.host.url=http://172.31.85.30:9000 -Dsonar.login=${sonar_user} -Dsonar.password=${sonar_pass} -Dsonar.projectKey=cart"
 
-              }
-
-            }
-
+            sh "sonar-scanner -Dsonar.host.url=http://172.31.85.30:9000 -Dsonar.login=${sonar_user} -Dsonar.password=${sonar_pass} -Dsonar.projectKey=cart"
 
           }
         }
-      }
+
         stage('upload code to centralized place') {
           steps {
             echo 'upload'
           }
         }
-
+      }
     }
+
+
   } catch(Exception e) {
     common.email('failed')
   }
 }
+
 
 
 
