@@ -26,7 +26,7 @@ def call() {
         }
       }
       stagge('upload code to centralized place') {
-        echo 'upload'
+        echo 'upload file'
 
       }
 
