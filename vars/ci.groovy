@@ -1,5 +1,27 @@
 
-def call() {
+def cll() {
+  try {
+    node('workstation') {
+
+      stage('cleanup') {
+        cleanws()
+
+      }
+    }
+
+  }
+
+}
+
+
+
+
+
+
+
+
+
+//def call() {
   try {
     pipeline {
       agent {
