@@ -1,5 +1,5 @@
 
-def cll() {
+def call() {
   try {
     node('workstation') {
 
@@ -9,11 +9,11 @@ def cll() {
       }
     }
 
+  } catch (Exception e) {
+
   }
 
 }
-
-
 
 
 
