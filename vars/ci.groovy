@@ -14,7 +14,7 @@ def call() {
       }
 
 
-      stagge('upload code to centralized place') {
+      stage('upload code to centralized place') {
         echo 'upload file'
 
       }
