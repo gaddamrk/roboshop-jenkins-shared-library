@@ -6,6 +6,18 @@ def call() {
         cleanWs()
         git branch: 'main', url: 'https://github.com/gaddamrk/cart.git'
       }
+      stage('compile/build') {
+        common.compile()
+      }
+      stage('unit test') {
+        common.unittests()
+      }
+
+
+      stagge('upload code to centralized place') {
+        echo 'upload file'
+
+      }
 
 
     }
