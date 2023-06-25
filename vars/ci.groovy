@@ -1,4 +1,6 @@
 def call() {
+  if(!env.SONAR_EXTRA_OPTS)
+    env.SONAR_EXTRA_OPTS= " "
   try {
     node('workstation') {
 
