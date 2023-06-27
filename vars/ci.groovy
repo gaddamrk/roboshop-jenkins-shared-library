@@ -1,13 +1,21 @@
 def call() {
   if(!env.SONAR_EXTRA_OPTS)
     env.SONAR_EXTRA_OPTS= " "
+
+  if(!env.TAG_NAME) {
+    env.PUSH_CODE = "false"
+  } else {
+    emv.PUSH_CODE = "true"
+  }
+
+
   try {
     node('workstation') {
 
       stage('check out') {
         cleanWs()
         git branch: 'main', url: "https://github.com/gaddamrk/${component}.git"
-
+        sh 'env'
       }
       stage('compile/build') {
         common.compile()
@@ -23,14 +31,17 @@ def call() {
             sh "sonar-scanner -Dsonar.host.url=http://172.31.85.30:9000 -Dsonar.login=${SONAR_USER} -Dsonar.password=${SONAR_PASS} -Dsonar.projectKey=${component} -Dsonar.qualitygate.wait=true ${SONAR_EXTRA_OPTS}"
           }
       }
-      stage('upload code to centralized place') {
-        echo 'upload file'
 
+      if(env.PUSH_CODE == "true") {
+        stage('upload code to centralized place') {
+          echo 'upload file'
+        }
       }
+
     }
   } catch (Exception ignored) {
    common.email('failed')
- }
+  }
 
 }
 
