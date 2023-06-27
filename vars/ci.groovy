@@ -5,7 +5,7 @@ def call() {
   if(!env.TAG_NAME) {
     env.PUSH_CODE = "false"
   } else {
-    emv.PUSH_CODE = "true"
+    env.PUSH_CODE = "true"
   }
 
 
