@@ -32,15 +32,20 @@ def call() {
           }
       }
 
-      stage('upload code to centralized place') {
-        echo 'upload file'
+      if(env.PUSH_CODE == "true") {
+        stage('upload code to centralized place') {
+          echo 'upload file'
+
+        }
+
 
       }
 
 
+
     }
   } catch (Exception ignored) {
-   common.email('failed')
+    common.email('failed')
   }
 
 }
