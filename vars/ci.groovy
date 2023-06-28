@@ -24,10 +24,7 @@ def call() {
         }
 
 
-        stage('upload code to centralized place') {
-          echo 'upload file'
-          }
-        }
+
         stage('quality control') {
 
             SONAR_USER = sh ( script: 'aws ssm get-parameters --region us-east-1 --names sonarqube.user --query Parameters[0].Value --with-decryption | sed \'s/"//g\'', returnStdout: true).trim()
@@ -37,6 +34,11 @@ def call() {
                sh "echo sonar scan"
             }
         }
+
+        stage('upload code to centralized place') {
+            echo 'upload file'
+        }
+    }
 
 
 
@@ -55,7 +57,7 @@ def call() {
 
 
 
-
+//if(env.PUSH_CODE == "true") {
 
 
 
