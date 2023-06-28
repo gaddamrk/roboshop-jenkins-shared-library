@@ -46,7 +46,7 @@ def call() {
 
 
 
-//def general() {
+//def dummy() {
 //  try {
 //    pipeline {
 //      agent {
