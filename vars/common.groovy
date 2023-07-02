@@ -35,6 +35,3 @@ def artifactpush() {
     }
     sh 'ls -l '
 }
-
-
-}
