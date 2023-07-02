@@ -37,7 +37,7 @@ def artifactpush() {
     }
 
     if (app_lang == "nginx") {
-        sh "zip -r ${component}-${TAG_NAME}.zip * -x jenkinsfile"
+        sh "zip -r ${component}-${TAG_NAME}.zip * -x Jenkinsfile"
     }
     sh 'ls -l '
 
