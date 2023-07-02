@@ -30,8 +30,19 @@ def email(email_note) {
 }
 
 def artifactpush() {
+    sh "echo ${TAG_NAME} >VERSION"
     if (app_lang == "nodejs") {
-      sh "zip -r cart-${TAG_NAME}.zip node_modules server.js"
+      sh "zip -r ${COMPONENT}-${TAG_NAME}.zip node_modules server.js VERSION"
     }
     sh 'ls -l '
+
+    NEXUS_USER = sh ( script: 'aws ssm get-parameters --region us-east-1 --names nexus.user --query Parameters[0].Value --with-decryption | sed \'s/"//g\'', returnStdout: true).trim()
+    NEXUS_PASS = sh ( script: 'aws ssm get-parameters --region us-east-1 --names nexus.pass --query Parameters[0].Value --with-decryption | sed \'s/"//g\'', returnStdout: true).trim()
+    wrap([$class: 'MaskPasswordsBuildWrapper', varPasswordPairs: [[password: "${NEXUS_PASS}", var: 'SECRET']]]) {
+      sh "curl -v -u ${NEXUS_USER}:${NEXUS_PASS} --upload-file ${COMPONENT}-${TAG_NAME}.zip http://172.31.86.181:8081/repository/${COMPONENT}/${COMPONENT}-${TAG_NAME}.zip"
+    }
+
+
+
+
 }
