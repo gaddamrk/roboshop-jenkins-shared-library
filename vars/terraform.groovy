@@ -6,6 +6,7 @@ def call() {
         }
         agent {
             node {
+                cleanWs()
                 label 'workstation'
 
             }
