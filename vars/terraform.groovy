@@ -6,9 +6,7 @@ def call() {
         }
         agent {
             node {
-
                 label 'workstation'
-
             }
         }
         parameters {
