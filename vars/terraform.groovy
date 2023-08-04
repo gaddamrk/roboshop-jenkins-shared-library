@@ -28,9 +28,9 @@ def call() {
             }
 
         post {
-          always {
-            cleanWs()
-          }
+            always {
+              cleanWs()
+            }
         }
 
         }
