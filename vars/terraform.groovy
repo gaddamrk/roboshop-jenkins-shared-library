@@ -19,13 +19,13 @@ def call() {
 
             stage('terraform init') {
                 steps {
-                    sh "terraform ${ACTION} -backend-config=env-${INFRA_ENV}/state.tfvars"
+                    sh "terraform init -backend-config=env-${INFRA_ENV}/state.tfvars"
                 }
             }
 
             stage('terraform Apply') {
                 steps {
-                    sh "terraform apply -auto-approve -var-file=env-${INFRA_ENV}/main.tfvars"
+                    sh "terraform ${ACTION} -auto-approve -var-file=env-${INFRA_ENV}/main.tfvars"
                 }
             }
         }
