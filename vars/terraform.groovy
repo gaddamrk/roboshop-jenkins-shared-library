@@ -11,13 +11,15 @@ def call() {
         }
         parameters {
             string(name: 'INFRA_ENV', defaultValue: '', description: 'enter env like dev or prod')
+            choice(name: 'ACTION', choices: ['apply', 'destroy'], description: 'Action')
+
         }
 
         stages {
 
             stage('terraform init') {
                 steps {
-                    sh "terraform init -backend-config=env-${INFRA_ENV}/state.tfvars"
+                    sh "terraform ${ACTION} -backend-config=env-${INFRA_ENV}/state.tfvars"
                 }
             }
 
